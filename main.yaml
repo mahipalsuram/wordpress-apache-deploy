@@ -1,0 +1,16 @@
+---
+- name: Installing database
+  hosts: dbserver1
+  vars_files:
+    - ./vars/secrets.yaml
+  roles:
+    - mariadb  
+
+- name: Installing wordpress
+  hosts: appserver1
+  vars_files:
+    - ./vars/secrets.yaml
+
+  roles:
+    - app
+
